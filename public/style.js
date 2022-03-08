@@ -1,6 +1,6 @@
 const logoGroup = document.querySelector('.navbar__logo-group');
 
-logoGroup.addEventListener('mouseenter', function() {
+logoGroup.addEventListener('mouseenter', () => {
     const navbarLogo = document.querySelector('.navbar__logo');
     const navbarLogoText = document.querySelector('.navbar__logo-text');
 
@@ -8,7 +8,7 @@ logoGroup.addEventListener('mouseenter', function() {
     navbarLogoText.classList.add('navbar__logo-text--hover');
 });
 
-logoGroup.addEventListener('mouseleave', function() {
+logoGroup.addEventListener('mouseleave', () => {
     const navbarLogo = document.querySelector('.navbar__logo');
     const navbarLogoText = document.querySelector('.navbar__logo-text');
 

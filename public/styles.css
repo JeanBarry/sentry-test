@@ -162,6 +162,15 @@ a {
   margin-bottom: 1rem;
 }
 
+#apiForm__error-name {
+  align-self: flex-start;
+  color: #db817e;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  display: none;
+}
+
 .apiForm__button {
   width: 100%;
   height: 3rem;

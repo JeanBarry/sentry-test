@@ -1,14 +1,7 @@
 const form = document.getElementById('apiForm');
 const submitButton = document.getElementById('submitForm');
 
-submitButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    const formData = new FormData(form);
-    const data = {};
-    formData.forEach(function(value, key) {
-        data[key] = value;
-    });
-
+const sendData = (data) => {
     fetch('/api', {
         method: 'POST',
         body: JSON.stringify(data),
@@ -22,5 +15,35 @@ submitButton.addEventListener('click', function(event) {
         .then(function(data) {
             console.log(data);
         });
+};
+
+const handleErrorMessages = ({ isValid, message }) => {
+    const errorMessage = document.getElementById('apiForm__error-name');
+    if (!isValid) {
+        errorMessage.innerHTML = message;
+        errorMessage.style.display = 'block';
+    } else {
+        errorMessage.style.display = 'none';
+    }
+};
+
+submitButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const data = {};
+    let validInput = {
+        isValid: false,
+        message: ''
+    };
+    formData.forEach((value, key) => {
+        data[key] = value;
+        validInput = validator(key, value);
+    });
+
+    handleErrorMessages(validInput);
+
+    if (validInput.isValid) {
+        sendData(data);
+    }
 });
 
