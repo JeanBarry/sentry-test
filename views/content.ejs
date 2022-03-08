@@ -1,9 +1,45 @@
 <main>
     <section class="main-section">
-        <h1>Sentry Test</h1>
-        <ul class="items">
-            <li class="item"></li>
-        </ul>
-        <form action="/api"></form>
+
+        <div class="container red-background">
+            <div class="container__section">
+                <p class="container__title">Details:</p>
+                <p class="container__text">
+                    This project was created to learn about <strong>Sentry</strong>,
+                    <strong>EJS</strong> templates and <strong>Redis</strong> usage.
+                </p>
+                <p class="container__text">
+                    Names sent will be added to the database via API
+                    and will be displayed on the page.
+                </p>
+            </div>
+        </div>
+
+        <div class="container blue-background">
+            <div class="container__section">
+                <p class="container__title">Sentry Test</p>
+                <div class="container__list">
+                    <% const {items} = data; %>
+                    <% if(items.length) { %>
+                        <ul class="item-list">
+                            <% items.forEach(item => { %>
+                                <li class="item-list__item">
+                                    <%= item.name %>
+                                </li>
+                            <% }); %>
+                        </ul>
+                    <% } else { %>
+                        <p class="error-message">No items found</p>
+                    <% } %>
+                </div>
+
+                <form id="apiForm" class="apiForm" action="/api" method="post">
+                    <label class="apiForm__input-label" for="name">Name</label>
+                    <input class="apiForm__input-box" id="name" type="text" name="name" maxlength="28" minlength="1" required>
+                    <input class="apiForm__button" id="submitForm" type="submit" value="Send">
+                </form>
+            </div>
+        </div>
+
     </section>
 </main>

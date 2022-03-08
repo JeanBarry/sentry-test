@@ -5,8 +5,11 @@ const router = require('./router');
 
 const app = express();
 app.set('view engine', 'ejs');
+
+const data = { items: [] };
+
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { data } );
 });
 app.use(express.static('public'));
 
