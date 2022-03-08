@@ -1,8 +1,65 @@
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('fonts/Roboto-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: #444;
-  color: #ffffff;
+  font-family: "Roboto-Regular", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar {
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 0 0 0.25rem 0.25rem;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar__logo-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__logo-group:hover {
+  cursor: pointer;
+}
+
+.navbar__logo {
+  mask: url('images/sentry-logo.svg') no-repeat center;
+  width: 3rem;
+}
+
+.navbar__logo--hover {
+  filter: grayscale(1) brightness(0) contrast(3) invert(1);
+}
+
+.navbar__logo-text {
+  margin-left: 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  color: #fff;
+  transition: all 0.5s ease
+}
+
+.navbar__logo-text--hover {
+  color: #fa2d27;
+  padding: 0 2rem;
+  transition: all 0.5s ease;
 }
