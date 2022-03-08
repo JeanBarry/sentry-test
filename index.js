@@ -1,15 +1,16 @@
 const express = require('express');
-const PORT =  3000;
-
-const router = require('./router');
 
 const app = express();
+const router = require('./router');
+
+const PORT = 3000;
+
 app.set('view engine', 'ejs');
 
 const data = { items: [] };
 
 app.get('/', (req, res) => {
-  res.render('index', { data } );
+  res.render('index', { data });
 });
 app.use(express.static('public'));
 

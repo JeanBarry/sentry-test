@@ -5,13 +5,18 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "start-dev": "nodemon -e js,ejs"
+    "start-dev": "nodemon -e js,ejs",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix ."
   },
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.3"
   },
   "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
     "nodemon": "^2.0.15"
   }
 }

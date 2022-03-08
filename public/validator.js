@@ -3,11 +3,12 @@ const validationRules = {
     required: true,
     length: {
       min: 1,
-      max: 28
+      max: 28,
     },
   },
 };
 
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "validator" }] */
 const validator = (field, value) => {
   const rule = validationRules[field];
   if (!rule) {
