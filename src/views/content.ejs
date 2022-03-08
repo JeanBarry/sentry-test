@@ -12,6 +12,12 @@
                     Names sent will be added to the database via API
                     and will be displayed on the page.
                 </p>
+                <p class="container__text">
+                    Tools used: <strong>Node.js</strong>, <strong>Express</strong>, <strong>EJS</strong>, <strong>ESLint</strong>, <strong>Sentry</strong> and <strong>Redis</strong>.
+                </p>
+                <p class="container__text">
+                    Add a string to the field and press <em>send</em> to add it to the database. Only <em>prime numbers</em>, <em>emails</em> and <em>countries</em> are allowed in the backend. Anything else will be shown as an element that triggered a sentry exception.
+                </p>
             </div>
         </div>
 
@@ -24,7 +30,7 @@
                         <ul class="item-list">
                             <% items.forEach(item => { %>
                                 <li class="item-list__item">
-                                    <%= item.name %>
+                                    <%= item.info %>
                                 </li>
                             <% }); %>
                         </ul>
@@ -34,8 +40,8 @@
                 </div>
 
                 <form id="apiForm" class="apiForm" action="/api" method="post">
-                    <label class="apiForm__input-label" for="name">Name</label>
-                    <input class="apiForm__input-box" id="name" type="text" name="name" maxlength="28" minlength="1" required>
+                    <label class="apiForm__input-label" for="text">Text</label>
+                    <input class="apiForm__input-box" id="text" type="text" name="text" maxlength="28" minlength="1" required>
                     <p id="apiForm__error-name"></p>
                     <input class="apiForm__button" id="submitForm" type="submit" value="Send">
                 </form>

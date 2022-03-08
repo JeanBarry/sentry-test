@@ -1,5 +1,5 @@
 const validationRules = {
-  name: {
+  text: {
     required: true,
     length: {
       min: 1,
