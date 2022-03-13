@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 require('dotenv').config();
 const router = require('./router');
+const sentryInstance = require('./utils/sentry');
 
 const PORT = 3000;
 const app = express();
@@ -12,6 +13,7 @@ const App = () => {
 
   app.use(express.static('public'));
   app.use('/', router);
+  sentryInstance();
 
   app.listen(PORT, () => {
     // eslint-disable-next-line no-console
