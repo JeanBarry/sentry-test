@@ -1,11 +1,18 @@
 const express = require('express');
-const formDataHandler = require('./formDataHandler');
+const apiServiceHandler = require('./services/apiService');
 
 const router = express.Router();
 
+const data = { items: [] };
+
 router.use(express.json());
-router.post('/', (req, res) => {
-  formDataHandler(req.body);
+
+router.get('/', (req, res) => {
+  res.render('index', { data });
+});
+
+router.post('/api', (req, res) => {
+  apiServiceHandler(req.body);
   res.json({
     message: 'response',
   });

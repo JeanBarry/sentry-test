@@ -209,3 +209,17 @@ a {
   transition: all 0.5s ease;
   cursor: pointer;
 }
+
+@media (max-width: 1281px) {
+  .navbar__logo-text, .container__title {
+    font-size: 2rem;
+  }
+
+  .apiForm__input-label {
+    font-size: 1.5rem;
+  }
+
+  .container__text, .error-message {
+    font-size: 1rem;
+  }
+}

@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "start-dev": "nodemon -e js,ejs",
+    "dev": "nodemon -e js,ejs",
     "lint": "eslint .",
     "lint-fix": "eslint --fix ."
   },
