@@ -2,17 +2,6 @@
 const form = document.getElementById('apiForm');
 const submitButton = document.getElementById('submitForm');
 
-const sendData = (data) => {
-  fetch('/api', {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json());
-};
-
 const handleErrorMessages = ({ isValid, message }) => {
   const errorMessage = document.getElementById('apiForm__error-name');
   if (!isValid) {
@@ -20,6 +9,27 @@ const handleErrorMessages = ({ isValid, message }) => {
     errorMessage.style.display = 'block';
   } else {
     errorMessage.style.display = 'none';
+  }
+};
+
+const sendData = async (data) => {
+  try {
+    let response = await fetch('/api', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    const { status } = response;
+    response = await response.json();
+    if (status !== 201) {
+      handleErrorMessages({ isValid: false, message: response.message });
+    } else {
+      location.reload(); // eslint-disable-line
+    }
+  } catch (error) {
+    console.log(error); // eslint-disable-line
   }
 };
 

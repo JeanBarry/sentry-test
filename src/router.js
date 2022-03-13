@@ -3,18 +3,18 @@ const apiServiceHandler = require('./services/apiService');
 
 const router = express.Router();
 
-const data = { items: [] };
-
 router.use(express.json());
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+  const data = { items: await apiServiceHandler.getHomeData() };
   res.render('index', { data });
 });
 
-router.post('/api', (req, res) => {
-  apiServiceHandler(req.body);
-  res.json({
-    message: 'response',
+router.post('/api', async (req, res) => {
+  const response = await apiServiceHandler.post(req.body);
+  res.status(response.statusCode).json({
+    message: response.message,
+    statusMessage: response.status,
   });
 });
 

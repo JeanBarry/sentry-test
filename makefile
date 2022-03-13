@@ -1,10 +1,11 @@
 DOCKER_COMPOSE=docker-compose -f ./docker/docker-compose.yml
+SERVICE_NAME=web
 
 lint:
-	yarn run lint
+	$(DOCKER_COMPOSE) exec $(SERVICE_NAME) yarn run lint
 
 lint-fix:
-	yarn run lint-fix
+	$(DOCKER_COMPOSE) exec $(SERVICE_NAME) yarn run lint-fix
 
 set-env:
 	cp .env.development .env

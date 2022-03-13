@@ -10,4 +10,16 @@ services:
       - 3000:3000
     volumes:
       - ../src:/usr/src/app/src
+      - ../public:/usr/src/app/public
+    networks:
+      - backend
     command: $RUN_COMMAND
+  redis:
+    container_name: redis
+    image: redis:alpine
+    networks:
+      - backend
+
+networks:
+  backend:
+    name: backend
